@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Neon Glass Social Icons</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #e0e0e0;
+        }
+        
+        .demo-container {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+        
+        h1 {
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #4a9cff, #ff4a8d, #1da1f2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 2.5rem;
+        }
+        
+        .subtitle {
+            color: #aaa;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        
+        .icons-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .icon-wrapper {
+            position: relative;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .icon-circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 16px;
+            backdrop-filter: blur(12px);
+            border: 1.5px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .icon-svg {
+            position: relative;
+            z-index: 2;
+            width: 32px;
+            height: 32px;
+            filter: drop-shadow(0 0 4px currentColor);
+            transition: all 0.4s ease;
+        }
+        
+        /* Facebook */
+        .facebook .icon-circle {
+            background: rgba(24, 119, 242, 0.12);
+            box-shadow: 
+                0 10px 35px rgba(24, 119, 242, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        }
+        
+        .facebook .icon-svg {
+            color: #4a9cff;
+            animation: neonPulse 3s ease-in-out infinite;
+        }
+        
+        /* Instagram */
+        .instagram .icon-circle {
+            background: rgba(225, 48, 108, 0.12);
+            box-shadow: 
+                0 10px 35px rgba(225, 48, 108, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        }
+        
+        .instagram .icon-svg {
+            color: #ff4a8d;
+            animation: neonPulse 3s ease-in-out infinite 0.5s;
+        }
+        
+        /* Twitter */
+        .twitter .icon-circle {
+            background: rgba(29, 161, 242, 0.12);
+            box-shadow: 
+                0 10px 35px rgba(29, 161, 242, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        }
+        
+        .twitter .icon-svg {
+            color: #1da1f2;
+            animation: neonPulse 3s ease-in-out infinite 1s;
+        }
+        
+        /* LinkedIn */
+        .linkedin .icon-circle {
+            background: rgba(0, 119, 181, 0.12);
+            box-shadow: 
+                0 10px 35px rgba(0, 119, 181, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        }
+        
+        .linkedin .icon-svg {
+            color: #0077b5;
+            animation: neonPulse 3s ease-in-out infinite 1.5s;
+        }
+        
+        /* Hover Effects */
+        .icon-wrapper:hover .icon-circle {
+            transform: scale(1.15) rotate(8deg);
+            backdrop-filter: blur(16px);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+        
+        .icon-wrapper:hover .icon-svg {
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 12px currentColor);
+        }
+        
+        /* Border Shine Effect */
+        .icon-circle::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: 18px;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        
+        .icon-wrapper:hover .icon-circle::before {
+            opacity: 1;
+        }
+        
+        /* Pulse Animation */
+        @keyframes neonPulse {
+            0%, 100% { 
+                filter: drop-shadow(0 0 4px currentColor);
+                opacity: 1;
+            }
+            50% { 
+                filter: drop-shadow(0 0 12px currentColor);
+                opacity: 0.9;
+            }
+        }
+        
+        .instructions {
+            margin-top: 40px;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 600px) {
+            .icons-container {
+                gap: 20px;
+            }
+            
+            .icon-wrapper {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .icon-svg {
+                width: 28px;
+                height: 28px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="demo-container">
+        <h1>Neon Glass Icons</h1>
+        <p class="subtitle">Pure CSS • Hover to interact</p>
+        
+        <div class="icons-container">
+            <!-- Facebook -->
+            <div class="icon-wrapper facebook">
+                <div class="icon-circle"></div>
+                <svg class="icon-svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.77,7.46H14.5v-2.9c0-0.93,0.64-1.45,1.5-1.45h1.4V0h-2.8c-3.1,0-4.1,1.9-4.1,4.1v3.36H7.46v4.14h3.04V24h4.14V11.6h2.9L18.77,7.46z"/>
+                </svg>
+            </div>
+            
+            <!-- Instagram -->
+            <div class="icon-wrapper instagram">
+                <div class="icon-circle"></div>
+                <svg class="icon-svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12,2.88c3.21,0,3.58,0.01,4.85,0.07c3.17,0.15,4.63,1.69,4.78,4.78c0.06,1.27,0.07,1.64,0.07,4.85s-0.01,3.58-0.07,4.85c-0.15,3.09-1.61,4.64-4.78,4.78c-1.27,0.06-1.64,0.07-4.85,0.07s-3.58-0.01-4.85-0.07c-3.17-0.15-4.63-1.69-4.78-4.78C2.89,15.58,2.88,15.21,2.88,12s0.01-3.58,0.07-4.85c0.15-3.09,1.61-4.64,4.78-4.78C8.42,2.89,8.79,2.88,12,2.88 M12,0C8.74,0,8.33,0.01,7.05,0.07C2.7,0.27,0.27,2.7,0.07,7.05C0.01,8.33,0,8.74,0,12s0.01,3.67,0.07,4.95c0.2,4.35,2.63,6.78,6.98,6.98C8.33,23.99,8.74,24,12,24s3.67-0.01,4.95-0.07c4.35-0.2,6.78-2.63,6.98-6.98C23.99,15.67,24,15.26,24,12s-0.01-3.67-0.07-4.95c-0.2-4.35-2.63-6.78-6.98-6.98C15.67,0.01,15.26,0,12,0L12,0z M12,5.84c-3.4,0-6.16,2.76-6.16,6.16s2.76,6.16,6.16,6.16s6.16-2.76,6.16-6.16S15.4,5.84,12,5.84z M12,16.05c-2.23,0-4.05-1.82-4.05-4.05S9.77,7.95,12,7.95s4.05,1.82,4.05,4.05S14.23,16.05,12,16.05z M18.37,5.58c-0.8,0-1.45,0.65-1.45,1.45s0.65,1.45,1.45,1.45s1.45-0.65,1.45-1.45S19.17,5.58,18.37,5.58z"/>
+                </svg>
+            </div>
+            
+            <!-- Twitter -->
+            <div class="icon-wrapper twitter">
+                <div class="icon-circle"></div>
+                <svg class="icon-svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M24,4.56c-0.88,0.39-1.83,0.65-2.83,0.77c1.01-0.61,1.79-1.57,2.16-2.72c-0.95,0.56-2,0.97-3.12,1.19c-0.9-0.96-2.18-1.56-3.59-1.56c-2.72,0-4.92,2.2-4.92,4.92c0,0.39,0.04,0.77,0.13,1.13C7.73,8.09,4.1,6.13,1.67,3.15C1.25,3.99,1,4.96,1,6.02c0,1.71,0.87,3.21,2.19,4.1c-0.81-0.03-1.57-0.25-2.23-0.62c0,0.02,0,0.04,0,0.06c0,2.39,1.7,4.38,3.95,4.83c-0.41,0.11-0.85,0.17-1.3,0.17c-0.32,0-0.63-0.03-0.93-0.09c0.63,1.97,2.47,3.41,4.65,3.45c-1.7,1.33-3.85,2.13-6.19,2.13c-0.4,0-0.8-0.02-1.19-0.07c2.2,1.41,4.82,2.24,7.63,2.24c9.15,0,14.15-7.58,14.15-14.15c0-0.22,0-0.43-0.01-0.64C22.5,6.47,23.34,5.57,24,4.56z"/>
+                </svg>
+            </div>
+            
+            <!-- LinkedIn -->
+            <div class="icon-wrapper linkedin">
+                <div class="icon-circle"></div>
+                <svg class="icon-svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.45,20.45h-3.56v-5.57c0-1.33-0.02-3.04-1.85-3.04c-1.85,0-2.13,1.45-2.13,2.94v5.67H9.35V9h3.42v1.56h0.05c0.47-0.9,1.63-1.85,3.35-1.85c3.59,0,4.25,2.36,4.25,5.43V20.45z M5.34,7.43c-1.15,0-2.08-0.94-2.08-2.08c0-1.15,0.93-2.08,2.08-2.08c1.15,0,2.08,0.93,2.08,2.08C7.42,6.49,6.49,7.43,5.34,7.43z M7.12,20.45H3.56V9h3.56V20.45z M22.22,0H1.78C0.8,0,0,0.8,0,1.78v20.44C0,23.2,0.8,24,1.78,24h20.44c0.98,0,1.78-0.8,1.78-1.78V1.78C24,0.8,23.2,0,22.22,0z"/>
+                </svg>
+            </div>
+        </div>
+        
+        <p class="instructions">Hover over the icons to see the neon glow and 3D effects</p>
+    </div>
+</body>
+</html>
